@@ -5,9 +5,11 @@
 					<link rel="stylesheet" href="css/bootstrap.min.css">
 					<link rel="stylesheet" href="css/bootstrap-theme.min.css">
 					 <style type="text/css">
-					 .inpiut.ng-invlid{
-					 	border: 1px,
-					 	solid:RED;
+					 .ng-invalid.ng-dirty{
+					 	border-color: #FA787E;
+					 }
+					 .ng-valid.ng-dirty{
+					 	border-color: #FAFA89;
 					 }
 					 </style>
 						<script type="text/javascript" src="js/angular.min.js" >
@@ -36,12 +38,15 @@
 							
 			</div>
 	        <div class="jumbotron">
-					<form  name="roleForm" role="form" ng-submit="roleForm.$valid" novalidate>
+					<form  name="roleForm" role="form" ng-submit="submitted=true" novalidate>
 						<div class="row">
 							<div class="form-group has-success  col-xs-4">
 							    <label class="control-label" >{{label.L1}}</label>
-							    <input type="number" class="form-control ng-invlid" id="inputSuccess4" placeholder="Role Id:" ng-model="roleid"  required />
+							    <input type="number" name="id" class="form-control ng-invlid" id="inputSuccess4" placeholder="Role Id:" ng-model="roleid"  required />
 						
+							  </div>
+							  <div  ng-show="roleForm.id.$error.number">
+							  	plz enter the id in number form
 							  </div>
 					     </div> 	
 							     <div class="row">
@@ -53,7 +58,7 @@
 									           </div>
 									           <div class="form-group has-success col-xs-6">
 									           <label class="control-label">{{label.L3}}</label>
-												    <input type="text" class="form-control" name="description" required placeholder="description" ng-model="description" required/>	
+												    <input type="text" class="form-control" name="description" required placeholder="description" ng-model="description" required="false"/>	
 									           	</div>
 					              </div>
 					            <div class="row">
@@ -65,7 +70,10 @@
 									           </div>
 									           <div class="form-group has-success col-xs-6">
 									           <label class="control-label">{{label.L5}}</label>
-												    <input type="date" class="form-control" name="Deactivation Date"/ ng-model="Deactivation" required>	
+												    <input type="date" class="form-control" name="Deactivation Date"/ ng-model="Deactivation" required >	
+									           	</div>
+									           	<div ng-show="roleForm.Deactivation.$error.date">
+									           		plz enter the date formate
 									           	</div>
 					              </div>
              
@@ -74,41 +82,13 @@
 			</div>
 
 	</div>
-
- <div class="container"> 
- <div class="jumbotron">
- 	      					 <div class="row">
-							     
-										      <div class="form-group has-success col-xs-6">	  
-				
-												    <label class="control-label">{{label.L6}}</label>
-												    <input type="text" class="form-control" ng-model="sharedmessage" >
-									           </div>
-									           <div class="form-group has-success col-xs-6">
-									           <label class="control-label">{{label.L7}}</label>
-												    <input type="text" class="form-control" />	
-									           	</div>
-					              </div>
-					               <div class="row">
-							     
-										      <div class="form-group has-success col-xs-6">	  
-				
-												    <label class="control-label">{{label.L8}}</label>
-												    <input type="text" class="form-control disabled" >
-									           </div>
-									           <div class="form-group has-success col-xs-6">
-									           <label class="control-label">{{label.L9}}</label>
-												    <input type="text" class="form-control" />	
-									           	</div>
-					              </div>
-  </div>
-
-</div> {{user }}
+ 
+ {{roleForm.$valid}}
 
                          <div class="row">
 					                <center>
 					                  	
-					            <button type="submit"   ng-click="sub()">Save</button>
+					            <button type="submit"   ng-click="submit()">Save</button>
 					                  	<button type="button" ng-click="publishClick(sharedmessage)" >Save and continue</button>
 					                  
 					                 
