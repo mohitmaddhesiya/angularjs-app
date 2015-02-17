@@ -2,11 +2,9 @@ var my=angular.module('my', ['directives','myapp']);
 my.controller('bodController',function ($scope,$http,myfactory){
     $http.get("name.json")
     .success(function(response) {$scope.label = response;});
-    $scope.arr=[{roleid:'',shortDescription:'',description:'',Activation:'',Deactivation:''}]
- $scope.sub=function(){
-
-	 
-console.log(typeof($scope.arr));
+    //$scope.arr=[{roleid:'',shortDescription:'',description:'',Activation:'',Deactivation:''}] 
+ /*$scope.sub=function(){
+ 	console.log(typeof($scope.arr));
 	   $scope.arr.push(
 	   	{
 	   		"roleid":$scope.roleid,
@@ -23,11 +21,22 @@ myfactory.getdata.data=$scope.arr;
 
 };
     $scope.reset = function() {
-        alert("mohit");
-        $scope.user = angular.copy($scope.arr);
+    $scope.arr=[{roleid:''}];   
+    };*/
+    $scope.arr={};
+    $scope.submit=function()
+    {
+      arr={
+      	"roleid":$scope.roleid,
+        "shortDescription":$scope.shortDescription,
+        "description":$scope.description,
+        "Activation":$scope.Activation,
+        "Deactivation":$scope.Deactivation
 
-    };
-    $scope.reset();
+        };
+        console.log(arr);
+    }
+    
       
 	
 });
