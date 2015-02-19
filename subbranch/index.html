@@ -1,0 +1,110 @@
+<html ng-app="my">
+<head>
+   
+  
+					<link rel="stylesheet" href="css/bootstrap.min.css">
+					<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+					 <style type="text/css">
+					 .ng-invalid.ng-dirty{
+					 	border-color: #FA787E;
+					 }
+					 .ng-valid.ng-dirty{
+					 	border-color: #FAFA89;
+					 }
+					 </style>
+						<script type="text/javascript" src="js/angular.min.js" >
+					   </script>
+					    <script src="js/angular-ui-router.min.js"></script>
+                       
+					   <script type="text/javascript" src="js/controller.js" >
+					   </script>
+					    <script type="text/javascript" src="name.json" >
+					  </script>
+					 <script type="text/javascript" src="js/app.js" >
+					 </script>
+					 <script type="text/javascript" src="js/factroy.js" >
+					 </script>
+				  
+	</head>
+<body data-ng-controller="bodController">
+
+   <div class="container"> 
+	   		<div class="row">
+		   				
+							    	<ul class="nav nav-tabs">
+							             <li role="presentation" class="active"><a href="#">{{label.tab}}</a></li>
+
+							        </ul>
+							
+			</div>
+	        <div class="jumbotron">
+					<form  name="roleForm" role="form" ng-submit="submitted=true" novalidate>
+						<div class="row">
+							<div class="form-group has-success  col-xs-4">
+							    <label class="control-label" >{{label.L1}}</label>
+							    <input type="number" name="id" class="form-control ng-invlid" id="inputSuccess4" placeholder="Role Id:" ng-model="roleid"  required />
+						
+							  </div>
+							  <div  ng-show="roleForm.id.$error.number">
+							  	plz enter the id in number form
+							  </div>
+					     </div> 	
+							     <div class="row">
+							     
+										      <div class="form-group has-success col-xs-6">	  
+				
+												    <label class="control-label">{{label.L2}}</label>
+												    <input type="text" class="form-control"  placeholder="shortDescription"  ng-model="shortDescription" required />
+									           </div>
+									           <div class="form-group has-success col-xs-6">
+									           <label class="control-label">{{label.L3}}</label>
+												    <input type="text" class="form-control" name="description" required placeholder="description" ng-model="description" required="false"/>	
+									           	</div>
+					              </div>
+					            <div class="row">
+							     
+										      <div class="form-group has-success col-xs-6">	  
+				
+												    <label class="control-label">{{label.L4}}</label>
+												    <input type="date" class="form-control" name="Activation Date" ng-model="Activation" required>
+									           </div>
+									           <div class="form-group has-success col-xs-6">
+									           <label class="control-label">{{label.L5}}</label>
+												    <input type="date" class="form-control" name="Deactivation Date"/ ng-model="Deactivation" required >	
+									           	</div>
+									           	<div ng-show="roleForm.Deactivation.$error.date">
+									           		plz enter the date formate
+									           	</div>
+					              </div>
+             
+					               
+			</form>	
+			</div>
+
+	</div>
+ 
+ {{roleForm.$valid}}
+
+                         <div class="row">
+					                <center>
+					                  	
+					            <button type="submit"   ng-click="submit()">Save</button>
+					                  	<button type="button" ng-click="publishClick(sharedmessage)" >Save and continue</button>
+					                  
+					                 
+					                  	<button type="submit"  ng-click="reset()">Clear</button>
+					               </center> 
+					            	</div>
+					            	<div>
+					            		name<input type="text"><br>
+					            		age<input type="number"> 
+					            	</div>
+					            	<div>
+					            		name<input type="text"><br>
+					            		age<input type="number"> 
+					            	</div>
+					            	
+
+	</body>
+
+</html>
