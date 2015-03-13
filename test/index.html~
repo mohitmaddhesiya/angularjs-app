@@ -104,13 +104,14 @@
 					            		name<input type="text"><br>
 					            		age<input type="number"> 
 					            	</div>
-<<<<<<< HEAD
-					            	<div>
-sdasdjasldk	laslkdjaslkd		lasjdlsajd	lsajfasdl	sljflds
-lsdjf	lsdjflkdsjf	lsdjlsd	lsdjfsl	lsdjsl	sdljvsdl	lvjdl
-							</div>
+<div>
+					            		name<input type="text"><br>
+					            		age<input type="number"> 
+					            	</div>
+					            	asdasdasdasd
+					            	
 
 	</body>
 
-=======
+
 </html>
